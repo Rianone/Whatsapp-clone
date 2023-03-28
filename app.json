@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "CrashCourse",
-    "slug": "CrashCourse",
+    "name": "Whatsapp Clone",
+    "slug": "Whatsapp Clone",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
