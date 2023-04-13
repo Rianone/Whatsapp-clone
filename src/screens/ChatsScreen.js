@@ -4,7 +4,7 @@ import ChatListItem from '../components/ChatListItem';
 
 function ChatsScreen() {
     return ( 
-        <FlatList data={chats} renderItem={({ item }) => <ChatListItem chat={item} /> } />
+        <FlatList data={chats} renderItem={({ item }) => <ChatListItem chat={item} />} style={{backgroundColor : "white"}} />
     );
 }
 
