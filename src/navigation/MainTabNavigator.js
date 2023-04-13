@@ -20,12 +20,14 @@ const MainTabNavigator = () => {
           <Tab.Screen name="Camera" component={Nip} options={{
               tabBarIcon: ({ color, size }) => (<Ionicons name="camera-outline" size={size} color={color} />)
           }}></Tab.Screen>
-          <Tab.Screen name="Chats" component={ChatsScreen} options={{
+          <Tab.Screen name="Chats" component={ChatsScreen} options={({navigation}) => ({
               tabBarIcon: ({ color, size }) => (<Ionicons name="ios-chatbubbles-sharp" size={size} color={color} />),
               headerRight: () => (
-                  <Entypo name="new-message" size={18} color="royalblue" style={{ marginRight: 15 }} />
+                  <Entypo name="new-message" size={18} color="royalblue" style={{ marginRight: 15 }} onPress={() => {
+                      navigation.navigate("Contacts")
+                  }}/>
               )
-          }}></Tab.Screen>
+          })}></Tab.Screen>
           <Tab.Screen name="Settings" component={Nip} options={{
               tabBarIcon: ({ color, size }) => (<Ionicons name="settings-outline" size={size} color={color} />)
           }}></Tab.Screen>
