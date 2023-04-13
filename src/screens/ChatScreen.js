@@ -1,4 +1,4 @@
-import { ImageBackground, Text, StyleSheet, FlatList } from 'react-native'
+import { ImageBackground, Text, StyleSheet, FlatList, KeyboardAvoidingView, Platform } from 'react-native'
 import React, { useEffect } from 'react'
 import bg from "../../assets/images/BG.png"
 import Message from '../components/Message'
@@ -15,10 +15,12 @@ const ChatScreen = () => {
   }, [route.params.name]) 
   
   return (
-    <ImageBackground source={bg} style={styles.bg}>
-          <FlatList data={messages} renderItem={({ item }) => <Message message={item} />} style={styles.list} inverted />
-          <InputBox/>
-    </ImageBackground>
+    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} keyboardVerticalOffset={Platform.OS === 'ios' ? 60 : 90} style={styles.bg}>
+      <ImageBackground source={bg} style={styles.bg}>
+        <FlatList data={messages} renderItem={({ item }) => <Message message={item} />} style={styles.list} inverted />
+        <InputBox />
+      </ImageBackground>
+    </KeyboardAvoidingView>
   )
 }
 

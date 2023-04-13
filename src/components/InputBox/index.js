@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, TextInput, Platform, KeyboardAvoidingView } from 'react-native'
 import { AntDesign, MaterialIcons } from "@expo/vector-icons"
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 const InputBox = () => {
@@ -12,15 +13,13 @@ const InputBox = () => {
     setText('')
   }
   return (
-    <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding" : "height"} style={styles.bg}>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container} edges={['bottom']}>
         <AntDesign name='plus' size={20} color="royalblue" />
 
         <TextInput value={text} placeholder='Type your message...' style={styles.input} onChangeText={setText} />
 
         <MaterialIcons onPress={onSend} name='send' size={20} color="white" style={styles.send} />
-      </View>
-    </KeyboardAvoidingView>
+      </SafeAreaView>
   )
 }
 
